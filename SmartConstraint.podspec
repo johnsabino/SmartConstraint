@@ -93,7 +93,7 @@ of this software and associated documentation files" }
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "SmartConstraint/**/*.{h,m}"
+  s.source_files  = "SmartConstraint/**/*.{h,m,swift}"
 
   # s.public_header_files = "Classes/**/*.h"
 
