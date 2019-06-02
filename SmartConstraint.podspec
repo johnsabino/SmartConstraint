@@ -82,7 +82,7 @@ of this software and associated documentation files" }
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/jonhpol/SmartConstraint.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/jonhpol/SmartConstraint.git", :tag => s.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
