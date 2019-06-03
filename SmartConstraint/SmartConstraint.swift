@@ -107,6 +107,11 @@ extension SmartConstraint {
         return self
     }
     
+    public func attatch() -> SmartConstraint {
+        
+        return self
+    }
+    
     func layoutAnchor<T: AnyObject>(_ anchor: NSLayoutAnchor<T>, toAnchor: NSLayoutAnchor<T>, relation: NSLayoutConstraint.Relation, padding: CGFloat) {
         var constraint: NSLayoutConstraint?
         
