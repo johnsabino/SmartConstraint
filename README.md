@@ -27,10 +27,15 @@ view.anchor
   .left(superView.leftAnchor)
   .right(superView.rightAnchor)
 ```
-You can set the priority and multiplier:
+You can set the paddings, priority and multiplier:
 
 ```swift
 view.anchor
+  .left(superView.leftAnchor, padding: 16)
   .top(superView.topAnchor, priority: 250)
   .height(superView.heightAnchor, multiplier: 0.7)
 ```
+
+## Author
+
+João Paulo Sabino, j.paulo_os@hotmail.com
