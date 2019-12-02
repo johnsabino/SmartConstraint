@@ -4,7 +4,7 @@ An easy way to make constraints in ios, macOS and tvOS Development with Swift
 
 # Setup
 
-Just copy the `SmartConstraint.swift` file to your project
+Just import as Swift Package
 
 # Usage
 
