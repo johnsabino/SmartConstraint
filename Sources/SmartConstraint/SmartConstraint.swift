@@ -59,7 +59,7 @@ extension SmartConstraint {
     public func top(_ anchor: NSLayoutYAxisAnchor,
                     padding: CGFloat = 0,
                     relation: NSLayoutConstraint.Relation = .equal,
-                    priority: Float = 1000) -> SmartConstraint {
+                    priority: UILayoutPriority = .required) -> SmartConstraint {
         layoutAnchor(view.topAnchor, toAnchor: anchor, relation: relation, padding: padding, priority: priority)
         return self
     }
@@ -68,7 +68,7 @@ extension SmartConstraint {
     public func bottom(_ anchor: NSLayoutYAxisAnchor,
                        padding: CGFloat = 0,
                        relation: NSLayoutConstraint.Relation = .equal,
-                       priority: Float = 1000) -> SmartConstraint {
+                       priority: UILayoutPriority = .required) -> SmartConstraint {
         layoutAnchor(view.bottomAnchor, toAnchor: anchor, relation: relation, padding: -padding, priority: priority)
         return self
     }
@@ -77,7 +77,7 @@ extension SmartConstraint {
     public func left(_ anchor: NSLayoutXAxisAnchor,
                      padding: CGFloat = 0,
                      relation: NSLayoutConstraint.Relation = .equal,
-                     priority: Float = 1000) -> SmartConstraint {
+                     priority: UILayoutPriority = .required) -> SmartConstraint {
         layoutAnchor(view.leftAnchor, toAnchor: anchor, relation: relation, padding: padding, priority: priority)
         return self
     }
@@ -86,7 +86,7 @@ extension SmartConstraint {
     public func right(_ anchor: NSLayoutXAxisAnchor,
                       padding: CGFloat = 0,
                       relation: NSLayoutConstraint.Relation = .equal,
-                      priority: Float = 1000) -> SmartConstraint {
+                      priority: UILayoutPriority = .required) -> SmartConstraint {
         layoutAnchor(view.rightAnchor, toAnchor: anchor, relation: relation, padding: -padding, priority: priority)
         return self
     }
@@ -96,7 +96,7 @@ extension SmartConstraint {
                       constant: CGFloat = 0,
                       multiplier: CGFloat = 1,
                       relation: NSLayoutConstraint.Relation = .equal,
-                      priority: Float = 1000) -> SmartConstraint {
+                      priority: UILayoutPriority = .required) -> SmartConstraint {
         layoutDimension(view.widthAnchor, toDimension: anchor, relation: relation, constant: constant, multiplier: multiplier, priority: priority)
         return self
     }
@@ -104,7 +104,7 @@ extension SmartConstraint {
     @discardableResult
     public func width(constant: CGFloat,
                       relation: NSLayoutConstraint.Relation = .equal,
-                      priority: Float = 1000) -> SmartConstraint {
+                      priority: UILayoutPriority = .required) -> SmartConstraint {
         layoutDimension(view.widthAnchor, relation: relation, constant: constant, priority: priority)
         return self
     }
@@ -114,7 +114,7 @@ extension SmartConstraint {
                        constant: CGFloat = 0,
                        multiplier: CGFloat = 1,
                        relation: NSLayoutConstraint.Relation = .equal,
-                       priority: Float = 1000) -> SmartConstraint {
+                       priority: UILayoutPriority = .required) -> SmartConstraint {
         layoutDimension(view.heightAnchor, toDimension: anchor, relation: relation, constant: constant, multiplier: multiplier, priority: priority)
         return self
     }
@@ -122,7 +122,7 @@ extension SmartConstraint {
     @discardableResult
     public func height(constant: CGFloat,
                        relation: NSLayoutConstraint.Relation = .equal,
-                       priority: Float = 1000) -> SmartConstraint {
+                       priority: UILayoutPriority = .required) -> SmartConstraint {
         layoutDimension(view.heightAnchor, relation: relation, constant: constant, priority: priority)
         return self
     }
@@ -131,7 +131,7 @@ extension SmartConstraint {
     public func centerX(_ anchor: NSLayoutXAxisAnchor,
                         padding: CGFloat = 0,
                         relation: NSLayoutConstraint.Relation = .equal,
-                        priority: Float = 1000) -> SmartConstraint {
+                        priority: UILayoutPriority = .required) -> SmartConstraint {
         layoutAnchor(view.centerXAnchor, toAnchor: anchor, relation: relation, padding: padding, priority: priority)
         return self
     }
@@ -139,7 +139,8 @@ extension SmartConstraint {
     @discardableResult
     public func centerY(_ anchor: NSLayoutYAxisAnchor,
                         padding: CGFloat = 0,
-                        relation: NSLayoutConstraint.Relation = .equal, priority: Float = 1000) -> SmartConstraint {
+                        relation: NSLayoutConstraint.Relation = .equal,
+                        priority: UILayoutPriority = .required) -> SmartConstraint {
         layoutAnchor(view.centerYAnchor, toAnchor: anchor, relation: relation, padding: padding, priority: priority)
         return self
     }
@@ -197,7 +198,7 @@ extension SmartConstraint {
                                     toAnchor: NSLayoutAnchor<T>,
                                     relation: NSLayoutConstraint.Relation,
                                     padding: CGFloat,
-                                    priority: Float) {
+                                    priority: UILayoutPriority = .required) {
         var constraint: NSLayoutConstraint!
         
         switch relation {
@@ -210,7 +211,7 @@ extension SmartConstraint {
         default:
             fatalError()
         }
-        constraint.priority = UILayoutPriority(priority)
+        constraint.priority = priority
         constraint.isActive = true
         lastConstraint = constraint
     }
@@ -220,7 +221,7 @@ extension SmartConstraint {
                          relation: NSLayoutConstraint.Relation,
                          constant: CGFloat,
                          multiplier: CGFloat = 1,
-                         priority: Float = 1000) {
+                         priority: UILayoutPriority = .required) {
         
         var constraint: NSLayoutConstraint!
         
@@ -246,7 +247,7 @@ extension SmartConstraint {
         default:
             fatalError()
         }
-        constraint.priority = UILayoutPriority(priority)
+        constraint.priority = priority
         constraint.isActive = true
         lastConstraint = constraint
     }
