@@ -46,13 +46,6 @@ public class SmartConstraint {
 
 }
 
-public extension UIView {
-    var anchor: SmartConstraint {
-        return SmartConstraint(view: self)
-    }
-    
-}
-
 extension SmartConstraint {
     
     @discardableResult
@@ -208,8 +201,8 @@ extension SmartConstraint {
             constraint = anchor.constraint(greaterThanOrEqualTo: toAnchor, constant: padding)
         case .lessThanOrEqual:
             constraint = anchor.constraint(lessThanOrEqualTo: toAnchor, constant: padding)
-        default:
-            fatalError()
+        @unknown default:
+            fatalError("Unknown case")
         }
         constraint.priority = priority
         constraint.isActive = true
@@ -244,18 +237,12 @@ extension SmartConstraint {
             } else {
                 constraint = dimension.constraint(lessThanOrEqualToConstant: constant)
             }
-        default:
-            fatalError()
+        @unknown default:
+            fatalError("Unknown case")
         }
+        
         constraint.priority = priority
         constraint.isActive = true
         lastConstraint = constraint
     }
-}
-
-public enum Paddings: Equatable {
-    case top(CGFloat)
-    case right(CGFloat)
-    case bottom(CGFloat)
-    case left(CGFloat)
 }
