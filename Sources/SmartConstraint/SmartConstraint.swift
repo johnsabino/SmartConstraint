@@ -192,7 +192,7 @@ extension SmartConstraint {
                                     relation: NSLayoutConstraint.Relation,
                                     padding: CGFloat,
                                     priority: UILayoutPriority = .required) {
-        var constraint: NSLayoutConstraint!
+        var constraint: NSLayoutConstraint?
         
         switch relation {
         case .equal:
@@ -204,8 +204,8 @@ extension SmartConstraint {
         @unknown default:
             fatalError("Unknown case")
         }
-        constraint.priority = priority
-        constraint.isActive = true
+        constraint?.priority = priority
+        constraint?.isActive = true
         lastConstraint = constraint
     }
     
@@ -216,7 +216,7 @@ extension SmartConstraint {
                          multiplier: CGFloat = 1,
                          priority: UILayoutPriority = .required) {
         
-        var constraint: NSLayoutConstraint!
+        var constraint: NSLayoutConstraint?
         
         switch relation {
         case .equal:
@@ -241,8 +241,8 @@ extension SmartConstraint {
             fatalError("Unknown case")
         }
         
-        constraint.priority = priority
-        constraint.isActive = true
+        constraint?.priority = priority
+        constraint?.isActive = true
         lastConstraint = constraint
     }
 }
