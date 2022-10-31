@@ -246,3 +246,16 @@ extension SmartConstraint {
         lastConstraint = constraint
     }
 }
+
+public enum Paddings: Equatable {
+    case top(CGFloat)
+    case right(CGFloat)
+    case bottom(CGFloat)
+    case left(CGFloat)
+}
+
+public extension UIView {
+    var anchor: SmartConstraint {
+        return SmartConstraint(view: self)
+    }
+}
